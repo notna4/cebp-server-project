@@ -61,6 +61,7 @@ public class HandleStockMarket implements HttpHandler {
 
     private Thread createUpdateThread(String company, double price, StringBuilder response) {
         return new Thread(() -> {
+
             // initialize lock for company
             lockMap.putIfAbsent(company, new ReentrantLock());
             ReentrantLock lock = lockMap.get(company);
